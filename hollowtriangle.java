@@ -19,7 +19,7 @@ public static void pattern(int n)
         {
             for(int k=1;k<2*i;k++)
             {
-                if(k==1 | k==2*i-1)
+                if(k==1 || k==2*i-1)
                 {
                 System.out.print("*");
                 }
