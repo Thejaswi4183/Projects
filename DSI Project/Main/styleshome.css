@@ -64,12 +64,11 @@ h5 {
     border-width: 1%;
     border-color: #fff;
 }
-
 .box2 li {
     position: relative;
     display: inline-block;
     padding: 20px;
-}
+    }
 
 .box2 li a {
     text-decoration: none;
