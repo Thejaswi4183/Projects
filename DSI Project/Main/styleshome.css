@@ -92,6 +92,10 @@ span {
     margin-left: 10px;
 }
 
+span li {
+    font-size: 20px;
+}
+
 span:hover {
     height: auto;
     background: #e3a010;
@@ -99,9 +103,8 @@ span:hover {
 }
 
 .fa-solid {
-    display:inline-flex;
-    font-size: 130%;
-    margin-left:10px;
-    margin-right:-20px;
+    display: inline-flex;
+    margin-left: 10px;
+    margin-right: -20px;
     text-shadow: 2px 4px 6px orange;
 }
