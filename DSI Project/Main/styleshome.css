@@ -25,7 +25,7 @@ nav {
 .divlinks li {
     display: inline-block;
     padding: 15px;
-    position: relative
+    position: relative;
 }
 
 .divlinks li a {
@@ -66,9 +66,9 @@ h5 {
 }
 
 .box2 li {
-    position: relative;
     display: inline-block;
-    padding: 20px;
+    padding: 2px 3px;
+    margin-left: 20px;
 }
 
 .box2 li a {
@@ -77,6 +77,30 @@ h5 {
     font-size: 15px;
     font-family: 'Chivo Mono', monospace;
     font-family: 'Inter', sans-serif;
-
 }
 
+span {
+    display: inline-block;
+    border-radius: 0.3em;
+    padding-left: 1px;
+    padding-right: 12px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+span:hover {
+    height: auto;
+    background: #e3a010;
+    transition: 0.4s;
+}
+
+.fa-solid {
+    font-size: 150%;
+    margin-left:10px;
+    margin-right:-20px;
+    text-shadow: 2px 4px 6px orange;
+}
