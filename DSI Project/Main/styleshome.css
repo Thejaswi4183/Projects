@@ -99,6 +99,7 @@ span:hover {
 }
 
 .fa-solid {
+    display:inline-flex;
     font-size: 130%;
     margin-left:10px;
     margin-right:-20px;
