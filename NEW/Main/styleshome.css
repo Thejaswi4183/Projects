@@ -10,6 +10,7 @@
     --outline-hover: .2rem solid var(--black);
 }
 
+
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -31,6 +32,7 @@ html {
 
 body {
     background: #eee;
+    
 }
 
 section {
@@ -43,6 +45,7 @@ section {
     padding-bottom: 3rem;
     font-size: 3.5rem;
     color: var(--black);
+  
 }
 
 .heading span {
@@ -81,7 +84,9 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 2%;
-    background: #191b2a;
+    /* background: #191b2a; */
+    /* opacity: 84%; */
+  
 
 }
 
@@ -96,6 +101,7 @@ section {
     font-size: 1.7rem;
     margin: 0 1rem;
     color: #fff;
+    
 }
 
 .header .navbar a:hover {
@@ -314,11 +320,12 @@ section {
     padding: 1rem 0;
     line-height: 1.8;
 }
+
 .parts {
     display: flex;
     align-items: top;
     justify-content: center;
-    background-color:black;
+    background-color: black;
     background-position: 0% 35%;
     background-size: 100%;
     padding-top: 14rem;
@@ -327,7 +334,7 @@ section {
 
 .parts .content h3 {
     font-size: 3rem;
-    color:#fff;
+    color: #fff;
     font-family: 'Chivo Mono', monospace;
     font-family: 'Inter', sans-serif;
 }
@@ -741,7 +748,7 @@ section {
     display: inline-block;
 }
 
-.dropdown .a:hover{
+.dropbtn:hover a {
     color: #ff7800;
 }
 
@@ -754,16 +761,17 @@ section {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     padding-right: 0%;
+    opacity: 250%;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-   padding-right: 20%;
+    padding-right: 20%;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
+    color: rgb(245, 164, 14);
     padding: 12px 16px;
     text-decoration: none;
     display: inline-block;
@@ -777,11 +785,16 @@ section {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+    background-color: #ff7800;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background-color: transparent;
+}
+
+.dropdown:hover a {
+    color: #ff7800;
 }
 
 div.gallery {
@@ -811,4 +824,71 @@ div.desc {
 
 table {
     background-color: #191b2a;
+}
+
+
+div .numbertext{
+    color: #fff;
+    font-size: 20px;
+    padding-top: 17%;
+    padding-left: 3%;
+    font-weight: 1000;
+}
+
+div .numbertext a{
+    color: #ff7800;
+    font-size: 4.8rem;
+}
+
+div .numbertext h1{
+      font-size:4.8rem;
+}
+
+div .numbertext .options{
+    background-color: #76b900;
+    padding: .8rem 2rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 1000;
+   
+}
+
+div .numbertext .options:hover{
+    background-color: #5c8a06;
+}
+
+div .numbertext .options1{
+    background-color:#ff7800;
+    padding: .8rem 2rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 1000;
+}
+
+div .numbertext .options1:hover{
+    background-color: #d26a10;
+}
+
+div .rx h1{
+    font-size: 4.8rem;
+}
+
+div .rx a{
+    color: #F90948;
+    font-size:5rem;
+}
+
+div .numbertext .options2{
+    background-color:#F90948;
+    padding: .8rem 2rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 1000;   
+}
+
+div .numbertext .options2:hover{
+    background-color: #f90949b9;
 }
