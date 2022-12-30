@@ -338,7 +338,9 @@ section {
     font-family: 'Chivo Mono', monospace;
     font-family: 'Inter', sans-serif;
 }
-
+.features{
+    background-color:#666;
+}
 .features .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
