@@ -340,31 +340,38 @@ section {
 }
 .features{
     background-color:#666;
+    border:1px solid red;
 }
 .features .box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
-}
+   }
 
 .features .box-container .box {
-    padding: 3rem 2rem;
-    background: #fff;
-    outline: var(--outline);
-    outline-offset: -1rem;
+    padding: 5rem 2rem;
+    background: #fff; 
     text-align: center;
-    box-shadow: var(--box-shadow);
+    height: 50rem;
+    border:1px solid red;
+    
 }
 
-.features .box-container .box:hover {
-    outline: var(--outline-hover);
-    outline-offset: 0rem;
+.features .box-container .box:hover{
+    background-color: #B18C5A;
 }
+
 
 .features .box-container .box img {
-    margin: 1rem 0;
-    height: 15rem;
+    margin: 1rem ;
+    height: 20rem;
+    float: left;
 }
+/* 
+.features .box-container .amd {
+    height: 40rem;
+   padding-left: 70%;
+} */
 
 .features .box-container .box h3 {
     font-size: 2.5rem;
@@ -828,6 +835,10 @@ table {
     background-color: #191b2a;
 }
 
+table .tr .td{
+    background-color: #d26a10;
+}
+
 
 div .numbertext {
     color: #fff;
@@ -893,4 +904,18 @@ div .numbertext .options2 {
 
 div .numbertext .options2:hover {
     background-color: #f90949b9;
+}
+
+.builds h1 {
+    padding-left: 25px;
+    font-size: 2rem;
+}
+
+hr {
+    background-color: black;
+    height: 0.8px;
+    width: 85%;
+    margin-top: 0;
+
+
 }
