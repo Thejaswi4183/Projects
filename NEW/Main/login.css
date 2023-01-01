@@ -1,3 +1,5 @@
+
+ 
 h1,section{
     text-align: center;
 }
@@ -164,4 +166,16 @@ body{
     margin: 20px auto;
     font-weight: 450;
  }
+ 
+
+
+ .success {
+    background: #D4EDDA;
+    color: #40754C;
+    padding: 11px;
+    width: 95%;
+    border-radius: 5px;
+    margin: 20px auto;
+ }
+
  

@@ -21,20 +21,16 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	$user_data = 'uname='. $uname. '&email='. $email;
 
 
-	if (empty($uname)) {
+	if(empty($email)){
+        header("Location: signup.php?error=Email is required&$user_data");
+	    exit();
+     }
+	 else if (empty($uname)) {
 		header("Location: signup.php?error=User Name is required&$user_data");
 	    exit();
-	}else if(empty($pass)){
+	}
+	else if(empty($pass)){
         header("Location: signup.php?error=Password is required&$user_data");
-	    exit();
-	}
-	else if(empty($re_pass)){
-        header("Location: signup.php?error=Re Password is required&$user_data");
-	    exit();
-	}
-
-	else if(empty($email)){
-        header("Location: signup.php?error=Email is required&$user_data");
 	    exit();
 	}
 
@@ -43,11 +39,14 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	    exit();
 	}
 
+
 	else{
 
 		// hashing the password
         $pass = md5($pass);
 
+		//token
+		$token=str_rand();
 	    $sql = "SELECT * FROM users WHERE user_name='$uname' ";
 		$result = mysqli_query($conn, $sql);
 
@@ -55,7 +54,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: signup.php?error=The username is taken try another&$user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO users(user_name, password, email) VALUES('$uname', '$pass', '$email')";
+           $sql2 = "INSERT INTO users(user_name, password, email,token) VALUES('$uname', '$pass', '$email','$token')";
            $result2 = mysqli_query($conn, $sql2);
            if ($result2) {
            	 header("Location: signup.php?success=Your account has been created successfully");
@@ -71,3 +70,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	header("Location: signup.php");
 	exit();
 }
+
+    function str_rand(int $length = 64){ // 64 = 32
+        $length = ($length < 4) ? 4 : $length;
+        return bin2hex(random_bytes(($length-($length%2))/2));
+    }
+   
+    var_dump(str_rand());
+    // d6199909d0b5fdc22c9db625e4edf0d6da2b113b21878cde19e96f4afe69e714
