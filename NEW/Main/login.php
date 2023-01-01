@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="login.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width , initial-scale=1">
     <div class="img">
-        <a href="home.html"><img src="https://cdna.pcpartpicker.com/static/forever/img/pcpp-logo.svg" alt="logo"></a>
+        <a href="home.php"><img src="https://cdna.pcpartpicker.com/static/forever/img/pcpp-logo.svg" alt="logo"></a>
     </div>
 </head>
 <title>login</title>
@@ -22,26 +22,26 @@
         <hr>
 
         <section>
-            <form action="home.html">
+            <form action="logincheck.php" method="post">
 
-
+                <?php if (isset($_GET['error'])) { ?>
+                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php } ?>
                 <br>
-                <input type="text" name="email" placeholder=" Email" required>
+                <input type="text" name="uname" placeholder=" User Name">
                 <p>
                 </p>
 
 
-                <input type="password" name="password" placeholder=" Password" required>
+                <input type="password" name="password" placeholder=" Password">
                 <p>
-                    <input type="submit" name="submit" value="Sign In">
+                    <input type="submit" value="Sign In">
                 </p>
             </form>
             <a href="forgot.html">Forgot Password?</p></a>
 
             <h4>Not a Member?</h4>
-            <form action="register.html">
-                <!-- <input type="submit" value="Register Here"> -->
-                <a href='register.html'>
+                <a href='signup.php'>
                     <button class="registerb">
                         <b>Register Here</b>
                     </button>

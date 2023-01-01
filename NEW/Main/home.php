@@ -1,3 +1,9 @@
+<?php 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,10 +31,10 @@
 
     <header class="header">
 
-        <a href="#" class="logo"> <img src="https://cdna.pcpartpicker.com/static/forever/img/pcpp-logo.svg"></a>
+        <a href="#" class="logo"> <img src="image/partpicker.png"></a>
 
         <nav class="navbar">
-            <a href="home.html">home</a>
+            <a href="home.php">home</a>
             <a href="#builder">builder</a>
             <div class="dropdown">
                 <button class="dropbtn"><a>Browse Products <i class="fa-solid fa-caret-down"></i></button></a>
@@ -106,12 +112,21 @@
 
             <a href="#benchmarks">Benchmarks</a>
         </nav>
+        
+        <div class="login-status">
+        
+        <a href="profile.html">
+        
+        <i class="fa-solid fa-user"> <?php echo "<styles>" .$_SESSION['user_name'];"</styles>" ?></i>
+       </a>
+</div>
+
 
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
             <div class="fas fa-shopping-cart" id="cart-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
+            <a href="logout.php"><div class="fa-solid fa-arrow-right-from-bracket" id="login-btn"></div></a>
         </div>
         <form action="" class="search-form">
             <input type="search" id="search-box" placeholder="search here...">
@@ -119,16 +134,6 @@
         </form>
 
 
-        <form action="" class="login-form">
-            <h3>Login</h3>
-            <input type="email" placeholder="Email ID" class="box" required>
-            <input type="password" placeholder="Password" class="box" required>
-            <input type="submit" value="Sign In" class="btn">
-            <p></p>
-            <p>Forgot Password? <a href="forgot.html">click here</a></p>
-            <p>Don't have an account? <a href="register.html">Sign Up</a></p>
-
-        </form>
     </header>
     <br><br><br>
     <!-- Slideshow container -->
@@ -298,5 +303,10 @@
     <!-- custom js file link  -->
     <script src="script.js"></script>
 </body>
-
+<?php 
+}else{
+     header("Location: index.php");
+     exit();
+}
+ ?>
 </html>
