@@ -1,11 +1,9 @@
-<!-- Starting php session -->
 <?php
 session_start();
-
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
-
+include "db_conn.php";
+	if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 ?>
-    <!DOCTYPE html>
+ <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -19,18 +17,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styleshome.css">
-        <link rel="stylesheet" href="slider.css">
+        <link rel="stylesheet" href="profile.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Inter&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/0469953560.js" crossorigin="anonymous"></script>
-        <title>Buildere</title>
     </head>
+<title>Profile</title>
 
-    <body>
-
-        <header class="header">
+<body>    
+    <header class="header">
             <!-- making the logo link to the main home page -->
             <a href="home.php" class="logo"> <img src="image\partpicker.png"></a>
             <!-- creating a navbar -->
@@ -135,127 +131,52 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 <input type="search" id="search-box" placeholder="search here...">
                 <label for="search-box" class="fas fa-search"></label>
             </form>
-        </header>
-        <br><br><br>
-        <!-- Slideshow container -->
-        <div class="slideshow-container">
+</header>
+    <section>
+        <hr>
+        <h1>Profile</h1>
+        <div class="links">
+            <ul>
+                <li><a href="profile.php"> Account </a></li>
+                <li><a href="bh.php"> Build History </a></li>
+            </ul>
+        </div>
+        <div class="acc">
+        <form action="reset.php" method="post" enctype="multipart/form-data">
+            <?php
 
-            <!-- Full-width images with number and caption text -->
-
-
-            <div class="mySlides fade">
-                <div class="numbertext">
-                    <h1>GeForce RTX 40 Series</h1>
-                    <p></p>
-                    <h2>BEYOND FAST</h2>
-                    <br>
-                    <p>NVIDIA® GeForce RTX™ 40 Series GPUs are beyond fast <br>for gamers and creators. They're powered by
-                        <br>the ultra-efficient NVIDIA Ada Lovelace architecture<br> which delivers a quantum leap in both
-                        performance and<br> AI-powered graphics. Experience lifelike virtual worlds with ray tracing<br> and
-                        ultra-high FPS gaming with the lowest latency.
-                    </p>
-                    <a href="#">
-                        <button class="options">
-                            View More
-                        </button>
-                    </a>
+            $sql = "SELECT * FROM users WHERE id='{$_SESSION["id"]}'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+            ?>      <div class="Name">
+                    <h4>
+                    <input label for="Name">Name:</label></h4>
+                  <p><?php echo $_SESSION['user_name']; ?></p>
                 </div>
-                <img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ada/rtx-4090/geforce-rtx-4090-100vp-d.jpg" style="width:100%">
-                <div class="text"></div>
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">
-                    <h1>The <a>AMD</a> 7000 Series</h1>
-                    <p></p>
-                    <h2>This Changes Everything</h2><br>
-                    The most advanced PC processor for gamers <br>
-                    AMD Ryzen™ 7000 Series processors are built to beat<br> the clock. With time-saving connectivity like
-                    PCIe® 5.0 <br>storage support.
-                    <br>
-                    <a href="#">
-                        <button class="options1">
-                            Check out
-                        </button>
-                    </a>
-                </div>
-
-                <img src="https://cdn.wccftech.com/wp-content/uploads/2020/06/AMD-Ryzen-Zen-CPUs_Next-Gen.jpg?" style="width:107%">
-                <div class="text"> </div>
-            </div>
-
-
-            <div class="mySlides fade">
-                <div class="numbertext">
-                    <div class="rx">
-                        <h1><a>RX 7000</a> Series</h1>
+                <br>
+                   <div class="Mail">
+                    <h4>
+                    <input label for="email">Email:</label></h4>
+                    <p><?php echo $row['email'];?></p>
                     </div>
-                    <h2>Performance to Rule Your Game</h2>
                     <br>
-                    <p>
-                        Built on the groundbreaking AMD RDNA™ 3 architecture<br> with chiplet technology, AMD Radeon™ RX
-                        7900 XTX<br> graphics deliver next-generation performance, visuals,<br> and efficiency at 4K and
-                        beyond.
-                    </p>
-                    <br>
-                    <button class="options2">
-                        Buy Now
-                    </button>
+                    <div class="Pass">
+                        <h4>
+                        <input label for="password">Password:</label></h4>
+                        <p><input type="password" id="password" name="password" placeholder="Password" value="<?php echo $row['password']; ?>" required>
+                </p>
                 </div>
-                <img src="https://cdn.arstechnica.net/wp-content/uploads/2022/11/AMD-Radeon-RX-7900-XTX_10.jpeg" style="width:100%">
-                <div class="text"></div>
-            </div>
-
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-
-        <!-- The dots/circles -->
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-
-
-        <!-- <section class="features" id="features">
-
-        <div class="box-container">
-
-            <div class="box">
-
-                <h3>Entry Level AMD Build</h3>
-                <p>
-                    AMD Ryzen 5 5600G
-                    Cooler Master MasterBox Q300L MicroATX Mini Tower</p>
-                <img src="image\entry-lvl.png"><br>
-                <a href="#" class="btn">read more</a>
-            </div>
-            <div class="box">
-
-                <h3>Entry Level AMD Build</h3>
-                <p>
-                    AMD Ryzen 5 5600G
-                    Cooler Master MasterBox Q300L MicroATX Mini Tower</p>
-                <img src="image/entry-lvl.png"><br>
-                <a href="#" class="btn">read more</a>
-            </div>
-            <div class="box">
-
-                <h3>Entry Level AMD Build</h3>
-                <p>
-                    AMD Ryzen 5 5600G
-                    Cooler Master MasterBox Q300L MicroATX Mini Tower</p>
-                <img src="image/entry-lvl.png"><br>
-                <a href="#" class="btn">read more</a>
-            </div>
-        </div>
-    </section> -->
-        <br>
-        <!-- Creating the bottom part of the home page -->
-        <section class="footer" id="footer">
+           <?php
+                }
+            }
+            ?>
+            <br> 
+            <input type="submit" value="Reset Password">
+            </form>
+    </div>
+    </section>
+    <section class="footer" id="footer">
             <table>
                 <tr>
                     <td>
@@ -307,7 +228,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
         <!-- custom js file link  -->
         <script src="script.js"></script>
-    </body>
+</body>
 <?php
 } else {
     header("Location: login.php");
