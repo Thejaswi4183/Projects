@@ -56,22 +56,12 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
         <ul class="navbar-nav">
 
 
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link text-white active bg-gradient-primary" href="category.php">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">table_view</i>
               </div>
-              <span class="nav-link-text ms-1">All Categories</span>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a class="nav-link text-white active" href="items.php">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">table_view</i>
-              </div>
-              <span class="nav-link-text ms-1">All Items</span>
+              <span class="nav-link-text ms-1">All Categor</span>
             </a>
           </li>
 
@@ -84,10 +74,10 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
             </a>
           </li>
 
-
+          
 
           <li class="nav-item">
-            <a class="nav-link text-white " href="add_item.php">
+            <a class="nav-link text-white " href="../pages/tables.html">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">add</i>
               </div>
@@ -126,7 +116,7 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
                       <th>Name</th>
                       <th>Image</th>
                       <th>Status</th>
-                      <th>Delete</th>
+                      <th>Edit</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -148,14 +138,11 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
                           <td><?= $item['id']; ?></td>
                           <td><?= $item['name']; ?></td>
                           <td>
-                            <img src="./Uploads/<?= $item['image']; ?>" width=70px alt="<?= $item['name']; ?>">
+                            <img src="./Uploads/<?= $item['image'];?>"  width=70px alt="<?= $item['name']; ?>">
                           </td>
-                          <td><?= $item['status'] == '1' ? "Visible" : "Hidden" ?></td>
+                          <td><?= $item['status'] == '0' ? "Visible" : "Hidden" ?></td>
                           <td>
-                            <form action="code.php" method="POST">
-                              <input type="hidden" value="<?= $item['id']; ?>" name="category_id">
-                              <button type="submit" class="btn btn-danger" name="delete_category_btn">Delete
-                            </form>
+                            <a href="#" class="btn btn-primary">Edit</a>
                           </td>
                         </tr>
 

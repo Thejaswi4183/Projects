@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -70,7 +69,7 @@ body {
 }
 
 .header .navbar a:hover {
-    color: orange;
+    color: var(--orange);
 }
 
 .header .icons div {
@@ -87,7 +86,7 @@ body {
 }
 
 .header .icons div:hover {
-    background: orange;
+    background: var(--orange);
     color: #fff;
 }
 
@@ -120,14 +119,14 @@ body {
     background: none;
     text-transform: none;
     font-size: 1.6rem;
-    color: black;
+    color: var(--black);
     padding: 0 1.5rem;
 }
 
 .header .search-form label {
     font-size: 2.2rem;
     padding-right: 1.5rem;
-    color: black;
+    color: var(--black);
     cursor: pointer;
 }
 
@@ -162,12 +161,48 @@ body {
 .header .shopping-cart .box img {
     height: 10rem;
 }
+.benchmarks {
+    display: flex;
+    justify-content: center;
+    background-color:#191b2a;
+}
 
+.benchmarks .content h3 {
+    font-size: 3rem;
+    color: #fff;
+    font-family: 'Chivo Mono', monospace;
+    align-items: center;
+    padding-bottom: 7%;
+    padding-top: 5%;
+    font-weight: 550;
+}
+.bm{
+    display:inline-flex;
+    background-color:white;
+    padding-left: 55rem;
+}
+.bm .form-control{
+     font-size: 2rem;
+} 
+.bm .bm1{
+    font-size: 7rem;
+    background-color: white;
+    color: black;
+    font-family: 'Chivo Mono', monospace;
+    padding:4rem;
+}
+.bm .bm2{
+    font-size: 7rem;
+    background-color: white;
+    color: black;
+    font-family: 'Chivo Mono', monospace;   
+    padding:4rem;
+}
 table {
     background-color: #191b2a;
 }
 
-table .tr .td {
+table .tr .td{
     background-color: #d26a10;
 }
 
@@ -188,145 +223,6 @@ table .tr .td {
     color: var(--orange);
 }
 
-
-.parts {
-    display: flex;
-    justify-content: center;
-    background-color: #191b2a;
-}
-
-.parts .content h3 {
-    font-size: 3rem;
-    color: rgb(255, 255, 255);
-    font-family: 'Chivo Mono', monospace;
-    font-family: 'Inter', sans-serif;
-    align-items: center;
-    padding-bottom: 7%;
-    padding-top: 5%;
-    font-weight: 550;
-}
-
-.features {
-    background-color: #666;
-}
-
-.divlinks li{
-    position: relative;
-    display:inline-block;
-    padding: 20px;
-}
-.divlinks li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-}
-
-.divlinks li::after {
-    height: 2px;
-    background: #e3a010;
-    transition: 0.4s;
-    width: 0%;
-    display: block;
-    margin: auto;
-    content: '';
-}
-
-.divlinks li:hover::after {
-    width: 100%;
-
-}
-.links li{
-    position: relative;
-    display:inline-block;
-    padding: 20px;
-}
-.links li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-}
-
-.links li::after {
-    height: 2px;
-    background: #e3a010;
-    transition: 0.4s;
-    width: 0%;
-    display: block;
-    margin: auto;
-    content: '';
-}
-
-.links li:hover::after {
-    width: 100%;
-
-}
-
-section{
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    border-radius: 5px;
-    display: block;
-    background-color:#191b2a;
-    padding-bottom: 0%;
-    width: 100%;
-    height:100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0em;
-    margin-bottom: 0px;
-    margin: auto;
-    border-radius: 0%;
-    position: relative;
-}
-h1{
-    color:ivory;
-    text-align: center;
-    padding-top: 2%;
-    padding-left: 2%;
-    padding-right:2%;
-    padding-bottom: 2%;
-    font-size: 300%;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-}
-.acc{
-    text-align: justify;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',Verdana, sans-serif;
-    border-radius: 5px;
-    display: block;
-    background-color:white;
-    margin-top:2rem;
-    margin-left:0rem;
-    margin-right:0rem;
-    padding-top:4rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom:1rem;
-    border-radius: 0%;
-    position: relative;
-
-}
-.acc form{
-font-size: 2rem;
-}
-.acc form h5{
-    width:10%;
-    height:10%;
-}
-.acc form .Name{
-    display:inline-flex;
-}
-.acc form .Mail{
-    display:inline-flex;
-}
-.acc form .Pass{
-    display:inline-flex;
-}
-.acc form .Mail p{
-    text-transform: lowercase;
-}
 .dropbtn {
     background-color: transparent;
     color: white;
@@ -417,102 +313,83 @@ div.desc {
     color: whitesmoke;
 }
 
-.products tr td {
-    width: 300px;
-    text-align: center;
-    border: 1px solid rgb(205, 199, 199);
-    padding: 3rem;
-    font-weight: 450;
+hr {
+    /* background-color: black; */
+    height: 0.8px;
+    width: 85%;
+    margin-top: 0;
 
-}
 
-.products {
-    margin: 0;
-}
-
-.products th {
-    text-align: center;
-    font-size: 18px;
 }
 
 .footer {
-    background:#191b2a;
-    padding-top:2rem;
-    padding-bottom: 14rem;
-    margin-bottom:0rem;
+    background:#191b2a;;
+    margin-top: 0;
 }
-
-.f1 {
-    margin-top: 6rem;
+.f1{
+    margin-top:6rem;
 }
-
-.f1 p {
+.f1 p{
     font-size: 2rem;
-    color: #fff;
+    color:#fff;
 }
-
-.f1 img {
+.f1 img{
     margin-top: 0.5rem;
     margin-bottom: 2rem;
 }
-
-.f2 {
-    margin-top: 0rem;
+.f2{
+    margin-top:0rem;
     padding-left: 20rem;
     padding-bottom: 0rem;
 }
-
-.f2 h1 {
+.f2 h1{
     font-size: 5rem;
-    color: #fff;
+    color:#fff;
 }
-
-.f2 hr {
+.f2 hr{
     background-color: #fff;
-    height: 0.8px;
-    width: 100%;
-}
-
-.f2 p {
+    height:0.8px;
+    width:100%;
+   }
+.f2 p{
     font-size: 2rem;
-    color: #fff;
+    color:#fff;
+}
+.f2 a{
+    text-decoration:none;
+    color:aqua;
+}
+.f2 a:hover{
+    text-decoration:underline;
+    color:aqua;
 }
 
-.f2 a {
-    text-decoration: none;
-    color: aqua;
-}
-
-.f2 a:hover {
-    text-decoration: underline;
-    color: aqua;
-}
 
 .login-status{
   
     color:#f6831e;
     padding-left: 25%;
-
+    
 }
 
-.login-status a {
+.login-status a{
     color: #fff;
     font-size: 3rem;
 }
 
 
-.login-status a:hover {
-    color: #f6831e;
+.login-status a:hover{
+   color:#f6831e;
 }
 
-.fa-user {
-    color: #fff;
+.fa-user{
+    color:#fff;
     font-size: 3rem;
 
 }
 
-.fa-user:hover {
-    color: #f6831e;
+.fa-user:hover{
+    color:#f6831e;
 }
 
 
