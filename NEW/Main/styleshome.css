@@ -811,7 +811,7 @@ hr {
 
 .footer {
     background: #191b2a;
-    ;
+    display: absolute;
 }
 
 .f1 {
