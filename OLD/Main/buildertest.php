@@ -143,10 +143,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                      <th>Add/Delete</th>
                   </tr>
                </thead>
-               <tbody>
                <table class="table table-light table-striped table-bordered">
                     <thead class="thead-dark">
-                   <tr>
                
                <?php         include('db_conn.php');
                   global $conn;
@@ -172,12 +170,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                             <img src="./Uploads/<?= $item['image'];?>" width=90px alt="<?= $item['name']; ?>">
                           </td>
                                         <td><?= $item['name']; ?></td>
-                                            <td>&#8377 <?= $item['price']; ?>&#160;&#160;&#160;&#160;&#160;<button class="btn btn-info btn-lg" type='submit' name="clear" value="<?= $item['id'];?>">Remove</td>  
-                                </tr>
+                                            <td>&#8377 <?= $item['price']; ?>&#160;&#160;&#160;</td>  
+                                    </tr>
                                     
 
                         <?php
-                        
                                 }
                             }
                         }

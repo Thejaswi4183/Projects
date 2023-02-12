@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2023 at 12:32 PM
+-- Generation Time: Feb 12, 2023 at 02:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `test_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `builds`
+--
+
+CREATE TABLE `builds` (
+  `b_id` int(2) NOT NULL,
+  `id` int(1) DEFAULT NULL,
+  `category_id` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `builds`
+--
+
+INSERT INTO `builds` (`b_id`, `id`, `category_id`) VALUES
+(0, 1, 1),
+(0, 24, 4);
 
 -- --------------------------------------------------------
 
@@ -74,31 +94,31 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `description`, `image`, `meta_keywords`, `price`, `slug`, `status`) VALUES
-(1, 1, '10th Gen Intel® Core™ i3-10100 Desktop Processor 6M Cache, 4 Cores up to 4.3GHz LGA 1200 (Intel® 400 Series Chipset) 65W', 'Intel Processors', 'i31010.jpg', 'i310101', 9650, 'intel', 0),
-(2, 1, '10th Gen Intel® Core™ i3-10105F Desktop Processor 4 Cores up to 4.4GHz Without Processor Graphics LGA 1200 (Intel® 400 Series Chipset) 65W', 'Intel Processors', 'i31010f.jpg', 'i31010f', 6000, 'intel', 0),
-(3, 1, '9th Gen Intel® Core™ i3-9100F Desktop Processor 4 Cores up to 4.2GHz Without Processor Graphics LGA 1151 (Intel® 300 Series Chipset) 65W BX80684i39100F', 'Intel Processors', 'i39100f.jpg', 'i39100f', 6900, 'intel', 0),
-(4, 1, '10th Gen Intel® Core™ i5-10400 Desktop Processor 12M Cache, 6 Cores up to 4.3GHz LGA 1200 (Intel® 400 Series Chipset) 65W BX8070110400', 'Intel Processors', 'i5-10400.jpg', 'i510400 ', 11100, 'intel', 0),
-(5, 1, '9th Gen Intel® Core™ i5-9400F Desktop Processor 6 Cores up to 4.1GHz Without Processor Graphics LGA 1151 (Intel® 300 Series Chipset) 65W BX80684I59400F', 'Intel Processors', 'i5-9400F.jpg', 'i59400F', 10200, 'intel', 0),
-(6, 1, '10th Gen Intel® Core™ i7-10700 Desktop Processor 8 Cores up to 4.8GHz LGA 1200 (Intel® 400 Series Chipset) 65W BX8070110700', 'Intel Processors', 'i7-10700.jpg', 'i710700', 23300, 'intel', 0),
-(7, 1, '11th Gen IntelÂ® Core i7-11700KF Desktop Processor 8 Cores up to 5.0GHz Unlocked Without Processor Graphics LGA 1200 (IntelÂ® 500 Series Chipset) 125W BX8070811700KF', 'Intel Processors', 'i7-11700KF.jpg', 'i711700KF', 26400, 'intel', 0),
-(8, 2, 'Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200 CL16 Memory', 'ram', 'corsair.jpg', 'CMK16GX4M1D3000C16', 4560, 'ram', 0),
-(9, 2, 'CORSAIR CMW32GX4M2C3000C15W Desktop Ram VENGEANCE RGB PRO Series 32GB (16GBx2) DDR4 3000MHz White', 'ram', 'corsairrgb.jpg', 'rgb', 12499, 'ram', 0),
-(10, 2, 'G.Skill F5-6000J3238G32GX2-TZ5RK Desktop Ram Trident Z RGB Series 32GB (16GBx2) DDR5 6000MHz', 'ram', 'gskillrgb.jpg', 'rgb 32gb', 18900, 'ram', 0),
-(11, 2, 'Kingston FURY Beast 16GB (16GB X 1) 5200MHZ DDR5 RGB Memory (KF552C40BBA-16)', 'ram', 'kingstonfury.jpg', 'kingston fury', 6690, 'ram', 0),
-(12, 2, 'G.Skill F4-3000C16S-16GVRB Desktop Ram Ripjaws V Series 16GB (16GBX1) DDR4 3000MHz Red', 'ram', 'gskilljaws.jpg', 'gskill ripjaw', 6199, 'ram', 0),
-(13, 2, 'G.Skill F4-3000C16S-16GVRB Desktop Ram Ripjaws V Series 16GB (16GBX1) DDR4 3000MHz Red', 'ram', 'kingstonfury1.jpg', 'ram 16gb', 5999, 'ram', 0),
-(14, 2, 'G.Skill F4-3000C16D-16GTZR Desktop Ram Trident Z RGB Series 16GB (8GBx2) DDR4 3000MHz', 'ram', 'gskilltrident.jpg', 'ram trident', 6415, 'ram', 0),
-(15, 2, 'Kingston HyperX Fury 8GB DDR4 2666MHz Non ECC Memory KF426C16BB/8', 'ram', 'kingstonfury2.jpg', 'ram 8gb', 2950, 'ram', 0),
-(16, 3, 'Cooler Master Hyper 212 Halo ARGB Air Cooler (White)', 'coolermaster', 'cmaster.jpg', 'cooler', 3450, 'cooler', 0),
-(17, 3, 'CORSAIR ICUE H150I ELITE CAPELLIX LIQUID CPU COOLER (WHITE) (CW-9060051-WW)', 'cooler', 'corsairmaster.jpg', 'cooler', 16105, 'cc', 0),
-(18, 3, 'NZXT Kraken X53 240mm AIO Liquid Cooler with RGB', 'kraken cooler', 'krakencooler.jpg', 'kraken cooler', 10049, 'cooler', 0),
-(19, 3, 'ARCTIC Liquid Freezer II 240', 'artic liquid freezer', 'articliquid.jpg', 'cooler', 10049, 'cooler', 0),
-(20, 3, 'Antec Neptune 120 ARGB Advanced All in One 120mm Cpu Liquid Cooler', 'neptune', 'anteccooler.jpg', 'cooler', 5399, 'cpucooler', 0),
-(21, 3, 'DeepCool AG400 BK ARGB Single Tower 120mm CPU Cooler (R-AG400-BKANMC-G-1)', 'deepcool', 'deepcool.jpg', 'deepccol', 2199, 'cooler', 0),
-(22, 3, 'Deepcool Gamerstorm CASTLE 240EX ARGB CPU Cooler', 'deepcool Gamerstrom', 'deepcool1.jpg', 'deepcool', 7199, 'aws', 0),
-(23, 3, 'Asus TUF Gaming LC 120 RGB All In One 120mm CPU Liquid Cooler', 'asus tuf', 'asustuf.jpg', 'tuf', 7789, 'tuf', 0),
-(24, 4, 'ASUS PRIME B550M-A (WI-FI) II Motherboard', 'motherboard', 'b550.jpg', 'mb', 11990, 'motherboard', 0),
-(25, 4, 'ASRock B450 Pro4 Motherboard (AMD Socket AM4/Ryzen Series CPU/Max 64GB DDR4 3200MHz Memory)', 'asrock', 'asrock.jpg', 'asrock', 6999, 'cooler', 0),
+(1, 1, '10th Gen Intel® Core™ i3-10100 Desktop Processor 6M Cache, 4 Cores up to 4.3GHz LGA 1200 (Intel® 400 Series Chipset) 65W', 'Intel Processors', 'i31010.jpg', 'Processor', 9650, 'intel', 0),
+(2, 1, '10th Gen Intel® Core™ i3-10105F Desktop Processor 4 Cores up to 4.4GHz Without Processor Graphics LGA 1200 (Intel® 400 Series Chipset) 65W', 'Intel Processors', 'i31010f.jpg', 'Processor', 6000, 'intel', 0),
+(3, 1, '9th Gen Intel® Core™ i3-9100F Desktop Processor 4 Cores up to 4.2GHz Without Processor Graphics LGA 1151 (Intel® 300 Series Chipset) 65W BX80684i39100F', 'Intel Processors', 'i39100f.jpg', 'Processor', 6900, 'intel', 0),
+(4, 1, '10th Gen Intel® Core™ i5-10400 Desktop Processor 12M Cache, 6 Cores up to 4.3GHz LGA 1200 (Intel® 400 Series Chipset) 65W BX8070110400', 'Intel Processors', 'i5-10400.jpg', 'Processor', 11100, 'intel', 0),
+(5, 1, '9th Gen Intel® Core™ i5-9400F Desktop Processor 6 Cores up to 4.1GHz Without Processor Graphics LGA 1151 (Intel® 300 Series Chipset) 65W BX80684I59400F', 'Intel Processors', 'i5-9400F.jpg', 'Processor', 10200, 'intel', 0),
+(6, 1, '10th Gen Intel® Core™ i7-10700 Desktop Processor 8 Cores up to 4.8GHz LGA 1200 (Intel® 400 Series Chipset) 65W BX8070110700', 'Intel Processors', 'i7-10700.jpg', 'Processor', 23300, 'intel', 0),
+(7, 1, '11th Gen IntelÂ® Core i7-11700KF Desktop Processor 8 Cores up to 5.0GHz Unlocked Without Processor Graphics LGA 1200 (IntelÂ® 500 Series Chipset) 125W BX8070811700KF', 'Intel Processors', 'i7-11700KF.jpg', 'Processor', 26400, 'intel', 0),
+(8, 2, 'Corsair Vengeance LPX 16 GB (2 x 8 GB) DDR4-3200 CL16 Memory', 'ram', 'corsair.jpg', 'Processor', 4560, 'ram', 0),
+(9, 2, 'CORSAIR CMW32GX4M2C3000C15W Desktop Ram VENGEANCE RGB PRO Series 32GB (16GBx2) DDR4 3000MHz White', 'ram', 'corsairrgb.jpg', 'Memory', 12499, 'ram', 0),
+(10, 2, 'G.Skill F5-6000J3238G32GX2-TZ5RK Desktop Ram Trident Z RGB Series 32GB (16GBx2) DDR5 6000MHz', 'ram', 'gskillrgb.jpg', 'Memory', 18900, 'ram', 0),
+(11, 2, 'Kingston FURY Beast 16GB (16GB X 1) 5200MHZ DDR5 RGB Memory (KF552C40BBA-16)', 'ram', 'kingstonfury.jpg', 'Memory', 6690, 'ram', 0),
+(12, 2, 'G.Skill F4-3000C16S-16GVRB Desktop Ram Ripjaws V Series 16GB (16GBX1) DDR4 3000MHz Red', 'ram', 'gskilljaws.jpg', 'Memory', 6199, 'ram', 0),
+(13, 2, 'G.Skill F4-3000C16S-16GVRB Desktop Ram Ripjaws V Series 16GB (16GBX1) DDR4 3000MHz Red', 'ram', 'kingstonfury1.jpg', 'Memory', 5999, 'ram', 0),
+(14, 2, 'G.Skill F4-3000C16D-16GTZR Desktop Ram Trident Z RGB Series 16GB (8GBx2) DDR4 3000MHz', 'ram', 'gskilltrident.jpg', 'Memory', 6415, 'ram', 0),
+(15, 2, 'Kingston HyperX Fury 8GB DDR4 2666MHz Non ECC Memory KF426C16BB/8', 'ram', 'kingstonfury2.jpg', 'Memory', 2950, 'ram', 0),
+(16, 3, 'Cooler Master Hyper 212 Halo ARGB Air Cooler (White)', 'coolermaster', 'cmaster.jpg', 'Cooler', 3450, 'cooler', 0),
+(17, 3, 'CORSAIR ICUE H150I ELITE CAPELLIX LIQUID CPU COOLER (WHITE) (CW-9060051-WW)', 'cooler', 'corsairmaster.jpg', 'Cooler', 16105, 'cc', 0),
+(18, 3, 'NZXT Kraken X53 240mm AIO Liquid Cooler with RGB', 'kraken cooler', 'krakencooler.jpg', 'Cooler', 10049, 'cooler', 0),
+(19, 3, 'ARCTIC Liquid Freezer II 240', 'artic liquid freezer', 'articliquid.jpg', 'Cooler', 10049, 'cooler', 0),
+(20, 3, 'Antec Neptune 120 ARGB Advanced All in One 120mm Cpu Liquid Cooler', 'neptune', 'anteccooler.jpg', 'Cooler', 5399, 'cpucooler', 0),
+(21, 3, 'DeepCool AG400 BK ARGB Single Tower 120mm CPU Cooler (R-AG400-BKANMC-G-1)', 'deepcool', 'deepcool.jpg', 'Cooler', 2199, 'cooler', 0),
+(22, 3, 'Deepcool Gamerstorm CASTLE 240EX ARGB CPU Cooler', 'deepcool Gamerstrom', 'deepcool1.jpg', 'Cooler', 7199, 'aws', 0),
+(23, 3, 'Asus TUF Gaming LC 120 RGB All In One 120mm CPU Liquid Cooler', 'asus tuf', 'asustuf.jpg', 'Cooler', 7789, 'tuf', 0),
+(24, 4, 'ASUS PRIME B550M-A (WI-FI) II Motherboard', 'motherboard', 'b550.jpg', 'MotherBoard', 11990, 'motherboard', 0),
+(25, 4, 'ASRock B450 Pro4 Motherboard (AMD Socket AM4/Ryzen Series CPU/Max 64GB DDR4 3200MHz Memory)', 'asrock', 'asrock.jpg', 'MotherBoard', 6999, 'cooler', 0),
 (26, 4, 'ASUS ROG STRIX B450-F GAMING II AMD AM4 B450 Gaming ATX Motherboard', 'asusrog', 'asusrog.jpg', 'asusrog', 14400, 'rog', 0),
 (27, 4, 'Msi B450 Gaming Plus Max Motherboard (Amd Socket AM4/Ryzen Series CPU/Max 128GB DDR4 4133MHz Memory)', 'msi', 'msi.jpg', 'msi 450', 9250, '450', 0),
 (28, 4, 'Gigabyte B650 GAMING X AX DDR5 Motherboard', 'gigabyte', 'gigabyte.jpg', 'b650', 16200, 'gigabyte', 0),
