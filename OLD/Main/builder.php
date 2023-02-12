@@ -2,8 +2,13 @@
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
-
-?>
+                  include('db_conn.php');
+                  global $conn;
+                  $id=$_GET['item'];
+                  $sql = "SELECT * from products where id=$id";
+                  $result = $conn->query($sql);
+              
+ ?>
    <!DOCTYPE html>
    <html lang="en">
 
@@ -102,7 +107,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                   </table>
                </div>
             </div>
-            <a href="#benchmarks">Benchmarks</a>
+            <a href="Compare.php">Compare</a>
          </nav>
          <div class="login-status">
             <a href="profile.php">
@@ -135,7 +140,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                   <tr>
                      <th>Category</th>
                      <th>Selection</th>
-                     <th>Source</th>
+                     <th>Image</th>
                      <th>Price</th>
                      <th>Add/Delete</th>
                   </tr>
@@ -143,80 +148,83 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                <tbody>
                   <tr id="processor">
                      <td class="category lead">Processor</td>
-                     <td class="selection"></td>
-                     <td class="source"></td>
-                     <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Processor</button></td>
+                     <?php  while ($item = $result->fetch_assoc()){?>
+                     <td class="selection"><?php echo $item['name'] ?></td>
+                     <td class="image"><img src="./Uploads/<?= $item['image'];?>"  width=70px alt="<?= $item['name']; ?>"></td>
+                     <td class="price text-right"><?php echo $item['price'] ?></td>
+                     <?php }?>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "cpu.php" role="button">Add Processor</td>
                   </tr>
                   <tr id="motherboard">
                      <td class="category lead">Motherboard</td>
+                     <?php ?>
                      <td class="selection"></td>
-                     <td class="source"></td>
+                     <td class="image"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Motherboard</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "motherboard.php" role="button">Add Motherboard</td>
                   </tr>
                   <tr id="gpu">
                      <td class="category lead">Graphics Card</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Graphic Card</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "videocard.php" role="button">Add Graphic Card</td>
                   </tr>
                   <tr id="psu">
                      <td class="category lead">Power Supply</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Power Supply</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "powersupply.php" role="button">Add Power Supply</td>
                   </tr>
                   <tr id="cabinet">
                      <td class="category lead">Cabinet</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Cabinet</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "case.php" role="button">Add Cabinet</td>
                   </tr>
                   <tr id="memory">
                      <td class="category lead">Memory (RAM)</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Memory</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "memory.php" role="button">Add Memory</td>
                   </tr>
                   <tr id="memory2">
                      <td class="category lead">Additional Memory (RAM)</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Memory</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "memory.php" role="button">Add Memory</td>
                   </tr>
                   <tr id="hdd">
                      <td class="category lead">Hard disk drive (HDD)</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Hard disk</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "memory.php" role="button">Add Hard disk</td>
                   </tr>
                   <tr id="ssd">
                      <td class="category lead">Solid State Disk (SSD)</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add SSD</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "memory.php" role="button">Add SSD</td>
                   </tr>
-                  <tr id="monitor">
+                  <!-- <tr id="monitor">
                      <td class="category lead">Monitor</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Monitor</button></td>
-                  </tr>
+                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Monitor</td>
+                  </tr> -->
                   <tr id="cooler">
                      <td class="category lead">CPU cooler</td>
                      <td class="selection"></td>
                      <td class="source"></td>
                      <td class="price text-right"></td>
-                     <td class="ref"><button type="button" class="btn btn-outline-primary btn-lg">Add Cpu Cooler</button></td>
+                     <td class="ref"><a class="btn btn-outline-primary btn-lg" href = "cpucooler.php" role="button">Add Cpu Cooler</td>
                   </tr>
                   <tr id="totals">
                      <td></td>
@@ -232,54 +240,53 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
       <button class="clearbuild">Clear Build</button>
       <button class="savebuild">Save Build</button>
       <section class="footer" id="footer">
-         <table>
-            <tr>
-               <td>
-                  <div class="f1">
-                     <img src="image/logo.png">
-                     <br>
-                     <p>
-                        PICK PARTS.<br>
-                        BUILD YOUR PC.<br>
-                        COMPARE AND SHARE.
-                     </p>
-                  </div>
-               </td>
-               <td>
-                  <div class="f2">
-                     <center>
-                        <h1>Catergories</h1>
-                        <center>
-                           <hr>
-                           <br>
-                           <center>
-                              <p>
-                                 <a href="Builder.php">Builder</a><br>
-                                 <a href="Builder.php">Browse Products</a><br>
-                                 <a href="Builder.php">Benchmarks</a>
-                              </p>
-                           </center>
-                  </div>
-               </td>
-               <td>
-                  <div class="f2">
-                     <center>
-                        <h1>Company</h1>
-                        <center>
-                           <hr>
-                           <br>
-                           <center>
-                              <p>
-                                 <a href="about.html">About</a><br>
-                                 <a href="contact.html">Contact Us</a><br>
-                                 <a href="#">User Code Of Conduct</a>
-                              </p>
-                           </center>
-                  </div>
-               </td>
-            </tr>
-         </table>
-      </section>
+            <table>
+                <tr>
+                    <td>
+                        <div class="f1">
+                            <img src="image/logo.png">
+                            <br>
+                            <p>
+                                PICK PARTS.<br>
+                                BUILD YOUR PC.<br>
+                                COMPARE AND SHARE.
+                            </p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="f2">
+                            <center>
+                                <h1>Catergories</h1>
+                                <center>
+                                    <hr>
+                                    <br>
+                                    <center>
+                                        <p>
+                                            <a href="Builder.php">Builder</a><br>
+                                            <a href="browse.php">Browse Products</a><br>
+                                            <a href="Compare.php">Compare</a>
+                                        </p>
+                                    </center>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="f2">
+                            <center>
+                                <h1>Company</h1>
+                                <center>
+                                    <hr>
+                                    <br>
+                                    <center>
+                                        <p>
+                                        <a href="about.php">About</a><br>
+                                        <a href="ucc.php">User Code Of Conduct</a>
+                                        </p>
+                                    </center>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
       <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
       <!-- custom js file link  -->
       <script src="script.js"></script>

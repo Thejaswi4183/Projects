@@ -102,7 +102,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     </div>
                 </div>
 
-                <a href="#benchmarks">Benchmarks</a>
+                <a href="Compare.php">Compare</a>
             </nav>
 
             <div class="login-status">
@@ -133,45 +133,57 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
             </div>
         </section>
         <section class="products">
-            <center>
-                <table class="table table-light table-striped table-bordered">
+        <table class="table table-light table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
+                            <th>Image</th>
                             <th>Product</th>
                             <th>Price</th>
-                            <th>Selection</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr id="Product">
-                            <td class="product"></td>
-                            <td class="selection"></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr id="Product">
-                            <td class="product"></td>
-                            <td class="selection"></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr id="Product">
-                            <td class="product"></td>
-                            <td class="selection"></td>
-                            <td class="source"></td>
-                        </tr>
-                        <tr id="Product">
-                            <td class="product"></td>
-                            <td class="selection"></td>
-                            <td class="source"></td>
-                        </tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <?php
+                        include('db_conn.php');
+                        function getAll($products)
+                        {
+                            global $conn;
+                            $query = "SELECT * From $products where category_id ='2' ";
+                            return $query_run = mysqli_query($conn, $query);
+                        }
+
+                        $product = getAll("products");
+
+                        if (mysqli_num_rows($product) > 0) {
+                            if (empty($product)) {
+                                echo "No products";
+                            } else {
+                                foreach ($product as $item) {
+                        ?>
+
+
+
+                                    <tr id="Product">
+                                    <td>
+                            <img src="./Uploads/<?= $item['image'];?>" width=90px alt="<?= $item['name']; ?>">
+                          </td>
+                                        <td><?= $item['name']; ?></td>
+                                            <td>&#8377 <?= $item['price']; ?>&#160;&#160;&#160;<a class="btn btn-primary btn-lg" href="#" role="button">ADD</button></td>  
+                                    </tr>
+
+                        <?php
+                                }
+                            }
+                        }
+
+                        ?>
+
                         </tr>
                     </tbody>
                 </table>
-            </center>
-        </section>
+            <!-- </center> -->
 
+        </section>
         <section class="footer" id="footer">
             <table>
                 <tr>
@@ -196,8 +208,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                                     <center>
                                         <p>
                                             <a href="Builder.php">Builder</a><br>
-                                            <a href="Builder.php">Browse Products</a><br>
-                                            <a href="Builder.php">Benchmarks</a>
+                                            <a href="browse.php">Browse Products</a><br>
+                                            <a href="Compare.php">Compare</a>
                                         </p>
                                     </center>
                         </div>
@@ -211,9 +223,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                                     <br>
                                     <center>
                                         <p>
-                                            <a href="about.html">About</a><br>
-                                            <a href="contact.html">Contact Us</a><br>
-                                            <a href="#">User Code Of Conduct</a>
+                                        <a href="about.php">About</a><br>
+                                        <a href="ucc.php">User Code Of Conduct</a>
                                         </p>
                                     </center>
                         </div>

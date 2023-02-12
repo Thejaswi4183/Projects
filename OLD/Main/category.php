@@ -83,23 +83,12 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
               <span class="nav-link-text ms-1">Add Category</span>
             </a>
           </li>
-
-
-
           <li class="nav-item">
             <a class="nav-link text-white " href="add_item.php">
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">add</i>
               </div>
               <span class="nav-link-text ms-1">Add Item</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">receipt_long</i>
-              </div>
-              <span class="nav-link-text ms-1">Billing</span>
             </a>
           </li>
         </ul>
@@ -145,7 +134,7 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
                       foreach ($category as $item) {
                     ?>
                         <tr>
-                          <td><?= $item['id']; ?></td>
+                          <td><?= $item['category_id']; ?></td>
                           <td><?= $item['name']; ?></td>
                           <td>
                             <img src="./Uploads/<?= $item['image']; ?>" width=70px alt="<?= $item['name']; ?>">
@@ -153,7 +142,7 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
                           <td><?= $item['status'] == '1' ? "Visible" : "Hidden" ?></td>
                           <td>
                             <form action="code.php" method="POST">
-                              <input type="hidden" value="<?= $item['id']; ?>" name="category_id">
+                              <input type="hidden" value="<?= $item['category_id']; ?>" name="category_id">
                               <button type="submit" class="btn btn-danger" name="delete_category_btn">Delete
                             </form>
                           </td>

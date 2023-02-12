@@ -94,14 +94,6 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
               <span class="nav-link-text ms-1">Add Item</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">
-              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="material-icons opacity-10">receipt_long</i>
-              </div>
-              <span class="nav-link-text ms-1">Billing</span>
-            </a>
-          </li>
         </ul>
       </div>
       <div class="sidenav-footer position-absolute w-100 bottom-0 ">
@@ -116,7 +108,7 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="font-weight-bold mb-1">Categories</h3>
+                <h3 class="font-weight-bold mb-1">Items</h3>
               </div>
               <div class="card-body">
                 <table class="table table-bordered table-striped">
@@ -155,7 +147,7 @@ if (isset($_SESSION['id']) || isset($_SESSION['user_name'])) {
                           <td><?= $item['status'] == '0' ? "Visible" : "Hidden" ?></td>
                           <td>
                           <form action="code.php" method="POST">
-                              <!-- <input type="hidden" value="<?= $item['id']; ?>" name="product_id"> -->
+                              <input type="hidden" value="<?= $item['id']; ?>" name="item_id">
                               <button type="submit" class="btn btn-danger" name="delete_items_btn">Delete
                             </form>
                           </td>

@@ -51,7 +51,7 @@ if (isset($_POST['add_category_btn'])) {
 elseif (isset($_POST['delete_category_btn']))
 {
     $category_id = mysqli_real_escape_string($conn,$_POST['category_id']);
-    $delete_query="DELETE FROM categories WHERE id='$category_id'";
+    $delete_query="DELETE FROM categories WHERE category_id='$category_id'";
     $delete_query_run=mysqli_query($conn,$delete_query);
 
     if($delete_query_run)
@@ -66,23 +66,20 @@ elseif (isset($_POST['delete_category_btn']))
 }
 
 
-// elseif (isset($_POST['delete_items_btn']))
-// {
-//     $product_query="SELECT*FROM products WHERE id='$product_id'";
-//     $product_query_run=mysqli_query($conn,$delete_query);
-//     $product_data = mysqli_fetch_array( $product_query_run);
-//     $image= $product_data['image'];
-//     $delete_query="DELETE FROM products WHERE id='$product_id'";
-//     $delete_query_run=mysqli_query($conn,$delete_query);
+elseif (isset($_POST['delete_items_btn']))
+{
+    $item_id = mysqli_real_escape_string($conn,$_POST['item_id']);
+    $delete_query="DELETE FROM products WHERE category_id='$item_id'";
+    $delete_query_run=mysqli_query($conn,$delete_query);
   
 
-//     if($delete_query_run)
-//     {
-//         redirect("items.php","Products Deleted Successfully" );
-//     }
+    if($delete_query_run)
+    {
+        redirect("items.php","Products Deleted Successfully" );
+    }
 
-//     else
-//     {
-//         redirect("items.php","Something went wrong");
-//     }
-// }
+    else
+    {
+        redirect("items.php","Something went wrong");
+    }
+}
