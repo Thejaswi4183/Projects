@@ -119,9 +119,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
             <div class="icons">
                 <div class="fas fa-bars" id="menu-btn"></div>
-                <div class="fas fa-search" id="search-btn"></div>
-                <div class="fas fa-shopping-cart" id="cart-btn"></div>
-                <a href="logout.php">
+                <a href="builder.php">  <div class="fas fa-shopping-cart" id="cart-btn"></div></a>                <a href="logout.php">
                     <div class="fa-solid fa-arrow-right-from-bracket" id="logout-btn"></div>
                 </a>
             </div>
@@ -176,7 +174,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                                 </div>
                                         <td><?= $item['name']; ?></td>
                                             <!-- <td class="source"></td> -->
-                                            <td><?= $item['price']; ?>&#160;&#160;&#160;<button class="btn btn-primary btn-lg" type='submit' name="item" value="<?= $item['id']; ?>">   Add</td> 
+                                            <td>&#8377 <?= $item['price']; ?>&#160;&#160;&#160;<button class="btn btn-primary btn-lg" type='submit' name="item" value="<?= $item['id']; ?>">add</td>
                                     </tr>
                                     
 
