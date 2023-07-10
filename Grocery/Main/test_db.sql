@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2023 at 11:39 AM
+-- Generation Time: Jul 10, 2023 at 05:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,6 +31,15 @@ CREATE TABLE `cart` (
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`product_id`) VALUES
+(1),
+(2),
+(3);
+
 -- --------------------------------------------------------
 
 --
@@ -53,7 +62,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `name`, `description`, `image`, `meta_title`, `status`, `popular`, `created_at`) VALUES
-(1, 'Fruits', 'Fruits', 'product-img-6.jpg', 'Fruits', 1, 0, '2023-07-07 07:09:56');
+(1, 'Fruits', 'Fruits', 'product-img-6.jpeg', 'Fruits', 1, 1, '2023-07-09 09:28:21'),
+(2, 'Vegetables', 'Vegetables    ', 'product-img-7.jpg', 'Vegetables', 1, 1, '2023-07-09 09:29:12');
 
 -- --------------------------------------------------------
 
@@ -78,7 +88,13 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `description`, `name`, `image`, `meta_keywords`, `price`, `slug`, `status`) VALUES
-(1, 1, 'Strawberry', 'Strawberry', 'product-img-1.jpg', 'Strawberry', 100, 'Fruits', 0);
+(1, 1, 'Strawberry', 'Strawberry', 'product-img-1.jpg', 'Strawberry', 100, 'Fruits', 0),
+(2, 2, 'Cauliflower', 'Cauliflower', 'product-img-15.jpeg', 'Vegetables', 120, 'Vegetables', 0),
+(3, 2, 'Onion', 'Onion', 'product-img-9.jpeg', 'Vegetables', 120, 'Vegetables', 0),
+(4, 1, 'Banana', 'Banana', 'product-img-13.jpeg', 'Fruits', 20, 'Fruits', 0),
+(5, 2, 'Beans', 'Beans', 'product-img-16.jpeg', 'Vegetables', 60, 'Vegetables', 0),
+(6, 2, 'Tomato', 'Tomato', 'product-img-8.jpeg', 'Tomato', 80, 'Vegetables', 0),
+(7, 1, 'Apple', 'Apple', 'product-img-18.jpeg', 'Fruits', 100, 'Fruits', 0);
 
 -- --------------------------------------------------------
 
@@ -141,13 +157,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
