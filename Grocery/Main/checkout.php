@@ -274,13 +274,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                                 <div class="c3">
                                     <h3>Billing Address</h3>
                                     <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                    <input type="text" id="fname" name="firstname" placeholder="John Wick">
+                                    <input type="text" id="fname" name="firstname" placeholder="John Wick" required>
                                     <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                                    <input type="text" id="email" name="email" placeholder="john@example.com">
+                                    <input type="text" id="email" name="email" placeholder="john@example.com" required>
                                     <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                                    <input type="text" id="adr" name="address" placeholder="3rd cross,Thigalarpete">
+                                    <input type="text" id="adr" name="address" placeholder="3rd cross,Thigalarpete" required>
                                     <label for="city"><i class="fa fa-institution"></i> City</label>
-                                    <input type="text" id="city" name="city" placeholder="Bengaluru">
+                                    <input type="text" id="city" name="city" placeholder="Bengaluru" required>
 
                                     <div class="row">
                                         <div class="c2">
@@ -304,15 +304,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                                         <i class="fa fa-cc-discover" style="color:orange;"></i>
                                     </div>
                                     <label for="cname">Name on Card</label>
-                                    <input type="text" id="cname" name="cardname" placeholder="John Wick">
+                                    <input type="text" id="cname" name="cardname" placeholder="John Wick" required>
                                     <label for="ccnum">Credit card number</label>
-                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
                                     <label for="expmonth">Exp Month</label>
-                                    <input type="text" id="expmonth" name="expmonth" placeholder="April">
+                                    <input type="text" id="expmonth" name="expmonth" placeholder="April" required>
                                     <label for="expyear">Exp Year</label>
-                                    <input type="text" id="expyear" name="expyear" placeholder="2028">
+                                    <input type="text" id="expyear" name="expyear" placeholder="2028" required>
                                     <label for="cvv">CVV</label>
-                                    <input type="text" id="cvv" name="cvv" placeholder="693">
+                                    <input type="text" id="cvv" name="cvv" placeholder="693" required>
                                 </div>
 
                             </div>
