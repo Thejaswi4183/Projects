@@ -62,7 +62,6 @@ if (isset($_POST['add_category_btn'])) {
     $delete_query = "DELETE FROM products WHERE id='$item_id'";
     $delete_query_run = mysqli_query($conn, $delete_query);
 
-
     if ($delete_query_run) {
         redirect("items.php", "Products Deleted Successfully");
     } else {
