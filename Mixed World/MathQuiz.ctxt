@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=MathQuiz
+comment1.params=
+comment1.target=void\ questions()
+comment2.params=
+comment2.target=java.lang.String\ time()
+comment3.params=
+comment3.target=void\ math()
+numComments=4
